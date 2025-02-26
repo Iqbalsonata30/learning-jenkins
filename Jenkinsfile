@@ -1,11 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label "linux && java11"
+    }
+  }
   stages {
     stage('Stage 1'){
       steps {
-        echo "Hello Worlf from SCM"
+        echo "Hello World from SCM"
       }
     }
   }
-
-}
+} 
