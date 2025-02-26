@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Build'){
       steps {
-        script{
+        script {
           for (int i = 0; i < 10;i++){
             echo "Script ${i}"
           }
@@ -19,6 +19,13 @@ pipeline {
     }
     stage('Test'){
       steps {
+        script {
+          def data = [
+              "firstName" : "Iqbal",
+              "lastName" : "Sonata",
+          ]
+          writeJSON(file: "data.json",json : data)
+        }
         echo 'Start Test'
         sh 'go test'
         echo 'Finish Test'
