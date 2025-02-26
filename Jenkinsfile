@@ -23,7 +23,7 @@ pipeline {
       echo "Oh no, it's failure"
     }
     cleanup {
-      echp "Don't care success or error"
+      echo "Don't care success or error"
     }
   }
 } 
