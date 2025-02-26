@@ -13,6 +13,9 @@ pipeline {
         }
       }
 
+      environment {
+        APP = credentials("iqbal_rahasia")
+      }
       steps {
         echo "Author : ${AUTHOR}"
         echo "Author Email : ${AUTHOR_EMAIL}"
@@ -20,6 +23,10 @@ pipeline {
         echo "Start Job : ${env.JOB_NAME}"
         echo "Start build : ${env.BUILD_NUMBER}"
         echo "Branch Name  : ${env.BRANCH_NAME}"
+        echo "-------------------------------------"
+        echo "Username : ${APP_USR}"
+        echo "Password : ${APP_PSW}"
+
       }
     }
     stage('Build'){
