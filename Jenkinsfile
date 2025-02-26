@@ -5,6 +5,10 @@ pipeline {
     AUTHOR_EMAIL = "iqbalsonata2@gmail.com"
     AUTHOR_WEB = "https://iqbalsonata.xyz"
   }
+  options {
+    disableConcurrentBuilds()
+    timeout(time: 10,unit: 'MINUTES')
+  }
   stages {
     stage('Prepare'){
       agent {
