@@ -25,7 +25,7 @@ pipeline {
         echo "Branch Name  : ${env.BRANCH_NAME}"
         echo "-------------------------------------"
         echo "Username : ${APP_USR}"
-        echo "Password : ${APP_PSW}"
+        sh('echo "Password : $APP_PSW" > secretfile.txt')
 
       }
     }
