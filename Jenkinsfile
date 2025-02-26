@@ -96,6 +96,11 @@ pipeline {
       }
     }
     stage('Deploy'){
+      input {
+        message "Can we deploy?"
+        ok "Yes,of course"
+        submitter "iqbalsonata"
+      }
       agent {
         node {
           label "linux && java11"
