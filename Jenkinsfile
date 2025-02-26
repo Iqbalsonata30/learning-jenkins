@@ -110,7 +110,7 @@ pipeline {
       }
 
       steps{
-        echo 'Starting deploy to public...'
+        echo "Deploy to ${TARGET_ENV}"
       }
     }
   }
