@@ -21,6 +21,26 @@ pipeline {
     timeout(time: 1,unit: 'MINUTES')
   }
   stages {
+    stage('Preparation'){
+      agent {
+        node {
+          label "linux && java11"
+        }
+      }
+      stages {
+        stage('Prepare Golang'){
+          steps{
+            echo "Prepare Go"
+          }
+        }
+        stage('Prepare React'){
+          steps{
+            echo "Prepare React"
+          }
+        }
+      }
+    }
+    
     stage('Parameter'){
       agent {
         node {
