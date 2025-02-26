@@ -5,6 +5,9 @@ pipeline {
     AUTHOR_EMAIL = "iqbalsonata2@gmail.com"
     AUTHOR_WEB = "https://iqbalsonata.xyz"
   }
+  triggers {
+    cron "*/5 * * * *"
+  }
   parameters {
     string(name: 'NAME', defaultValue: 'Guest',description: 'What is your name?')
     text(name: 'DESCRIPTION', defaultValue: '',description: 'Tell me about you')
