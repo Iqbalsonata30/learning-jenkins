@@ -1,12 +1,13 @@
 pipeline {
-  agent {
-    node {
-      label "linux && java11"
-    }
-  }
+  agent none
   stages {
     stage('Build'){
       steps {
+        agent {
+          node {
+            label "linux && java11"
+          }
+        }
         script {
           for (int i = 0; i < 10;i++){
             echo "Script ${i}"
