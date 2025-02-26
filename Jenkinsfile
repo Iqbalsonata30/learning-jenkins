@@ -101,7 +101,7 @@ pipeline {
         ok "Yes,of course"
         submitter "iqbalsonata"
         parameters {
-          choice(name: "TARGET ENV", choices:['QA','DEV','PROD'],description: "Which environment?")
+          choice(name: "TARGET_ENV", choices:['QA','DEV','PROD'],description: "Which environment?")
         }
       }
       agent {
