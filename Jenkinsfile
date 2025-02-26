@@ -5,11 +5,32 @@ pipeline {
     AUTHOR_EMAIL = "iqbalsonata2@gmail.com"
     AUTHOR_WEB = "https://iqbalsonata.xyz"
   }
+  parameters {
+    string(name: 'NAME', defaultValue: 'Guest',description: 'What is your name?')
+    text(name: 'DESCRIPTION', defaultValue: '',description: 'Tell me about you')
+    booleanParam(name: 'DEPLOY', defaultValue: false,description: 'Need to deploy?')
+    choice(name: 'SOCIAL_MEDIA', choices: ['Instagram','Twitter','Facebook'],description: 'Which social media?')
+    password(name: 'SECRET',defaultValue: "",description: 'Encrypt Key')
+  }
   options {
     disableConcurrentBuilds()
-    timeout(time: 10,unit: 'MINUTES')
+    timeout(time: 1,unit: 'MINUTES')
   }
   stages {
+    stage('Parameter'){
+      agent {
+        node {
+          label "linux && java11"
+        }
+      }
+      steps {
+        echo "Hello ${params.NAME}"
+        echo "You are ${params.DESCRIPTION}"
+        echo "Okay to deploy: ${params.DEPLOY}"
+        echo "Your Social Media : ${params.SOCIAL_MEDIA}"
+        echo "Your Secret Key : ${params.SECRET}"
+      }
+    }
     stage('Prepare'){
       agent {
         node {
@@ -30,7 +51,6 @@ pipeline {
         echo "-------------------------------------"
         echo "Username : ${APP_USR}"
         sh('echo "Password : $APP_PSW" > secretfile.txt')
-
       }
     }
     stage('Build'){
