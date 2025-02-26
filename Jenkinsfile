@@ -6,7 +6,8 @@ pipeline {
     AUTHOR_WEB = "https://iqbalsonata.xyz"
   }
   triggers {
-    cron "*/5 * * * *"
+    // cron "*/5 * * * *"
+    pollSCM "* * * * *"
   }
   parameters {
     string(name: 'NAME', defaultValue: 'Guest',description: 'What is your name?')
