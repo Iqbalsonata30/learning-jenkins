@@ -1,12 +1,26 @@
 pipeline {
   agent none
   stages {
+    stage('Prepare'){
+      agent {
+        node {
+          label "linux && java11"
+        }
+      }
+
+      steps {
+        echo "Start Job : ${env.JOB_NAME}"
+        echo "Start build : ${env.BUILD_NUMBER}"
+        echo "Branch Name  : ${env.BRANCH_NAME}"
+      }
+    }
     stage('Build'){
       agent {
         node {
           label "linux && java11"
         }
       }
+
       steps {
         script {
           for (int i = 0; i < 10;i++){
@@ -24,6 +38,7 @@ pipeline {
           label "linux && java11"
         }
       }
+
       steps {
         script {
           def data = [
@@ -43,6 +58,7 @@ pipeline {
           label "linux && java11"
         }
       }
+
       steps{
         echo 'Starting deploy to public...'
       }
