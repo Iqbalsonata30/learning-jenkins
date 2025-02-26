@@ -5,9 +5,19 @@ pipeline {
     }
   }
   stages {
-    stage('Stage 1'){
+    stage('Build'){
       steps {
-        echo "Hello World from SCM"
+        echo 'Build'
+      }
+    }
+    stage('Test'){
+      steps {
+        echo 'Test'
+      }
+    }
+    stage('Deploy'){
+      steps{
+        echo 'Deploy'
       }
     }
   }
