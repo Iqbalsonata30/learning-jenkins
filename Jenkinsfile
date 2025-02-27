@@ -22,19 +22,24 @@ pipeline {
   }
   stages {
     stage('Preparation'){
-      agent {
-        node {
-          label "linux && java11"
-        }
-      }
-      stages {
+      parallel {
         stage('Prepare Golang'){
+          agent {
+            node {
+              label "linux && java11"
+            }
+          }
           steps{
             echo "Prepare Go"
             sleep(5)
           }
         }
         stage('Prepare React'){
+          agent {
+            node {
+              label "linux && java11"
+            }
+          }
           steps{
             echo "Prepare React"
             sleep(5)
