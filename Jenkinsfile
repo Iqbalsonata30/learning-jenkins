@@ -39,7 +39,6 @@ pipeline {
             echo "Prepare React"
             sleep(5)
           }
-          }
         }
       }
     }
