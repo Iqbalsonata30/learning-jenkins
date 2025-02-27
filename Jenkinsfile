@@ -31,11 +31,14 @@ pipeline {
         stage('Prepare Golang'){
           steps{
             echo "Prepare Go"
+            sleep(5)
           }
         }
         stage('Prepare React'){
           steps{
             echo "Prepare React"
+            sleep(5)
+          }
           }
         }
       }
