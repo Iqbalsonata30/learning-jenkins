@@ -45,16 +45,16 @@ pipeline {
             }
           }
         }
-      }
-      excludes{
-        exclude {
-          axis{
-            name "OS"
-            values "Mac"
-          }
-          axis{
-            name "ARC"
-            values "32"
+        excludes{
+          exclude {
+            axis{
+              name "OS"
+                values "Mac"
+            }
+            axis{
+              name "ARC"
+                values "32"
+            }
           }
         }
       }
