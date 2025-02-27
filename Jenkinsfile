@@ -44,7 +44,6 @@ pipeline {
               echo "Setup ${OS}: ${ARC}"
             }
           }
-
         }
       }
     }
